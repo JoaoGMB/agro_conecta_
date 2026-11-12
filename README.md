@@ -2,6 +2,12 @@
 
 Atividade de Estudo Programada (AEP) — 4º Semestre (2026.2) Engenharia de Software | Análise e Desenvolvimento de Sistemas — UniCesumar
 
+> ## ⚠️ O CPF PRECISA SER VÁLIDO
+>
+> O sistema confere os dígitos verificadores. CPF inventado é recusado com `CPF inválido`, e isso é o comportamento esperado.
+>
+> **Use nos testes:** `529.982.247-25` ou `123.456.789-09`
+
 **ODS Vinculadas:** ODS 2 — Fome Zero e Agricultura Sustentável; ODS 9 — Indústria, Inovação e Infraestrutura; ODS 12 — Consumo e Produção Responsáveis
 
 **Equipe de Desenvolvimento:**
@@ -9,6 +15,23 @@ Atividade de Estudo Programada (AEP) — 4º Semestre (2026.2) Engenharia de Sof
 * João Guilherme Muller Bordin
 * Matheus José de Azevedo
 * Luiz Otávio Severino
+
+## Como testar no terminal
+
+**Login do administrador:** CPF `000.000.000-00` / senha `admin123`
+
+| # | Menu | Exemplo | Esperado |
+| - | ---- | ------- | -------- |
+| 1 | Tela inicial → `2` Cadastrar | CPF `529.982.247-25`, senha `1234` | Cadastro realizado |
+| 2 | `2` Terrenos → `2` Cadastrar | `Sítio Boa Vista`, `5.5` ha | Terreno #1 |
+| 3 | `3` Plantios → `2` Iniciar | terreno `1`, `01/10/2026` | Plantio #1 |
+| 4 | `4` Mudas → `2` Registrar | plantio `1`, `200`, `Catuaí`, `1.50` | Mudas registradas |
+| 5 | `5` Monitoramento → `2` Praga | plantio `1`, `05/10/2026`, nível `3` (ALTO) | Registro salvo e aviso criado |
+| 6 | `6` Colheitas → `2` Registrar | plantio `1`, `25/10/2026`, `100` kg | Colheita #1 |
+| 7 | `7` Vendas → `2` Registrar | colheita `1`, `30/10/2026`, `40` kg, R$ `10` | Total R$ 400,00, saldo 60 kg |
+| 8 | `7` Vendas → `2` Registrar | colheita `1`, `70` kg | Erro: restam apenas 60,00 kg |
+| 9 | `1` Avisos → `1` Pendentes | — | Mostra o aviso de praga |
+| 10 | `8` Histórico de um terreno | terreno `1` | Árvore completa e faturamento |
 
 ## Sobre o projeto
 
@@ -44,7 +67,7 @@ Nenhuma configuração é necessária. O sistema já se conecta ao MySQL em `loc
 | ------ | --- | ----- |
 | Administrador | `000.000.000-00` | `admin123` |
 
-O produtor se cadastra pela opção **"Sou produtor e quero me cadastrar"** da tela inicial, informando um CPF válido e uma senha de pelo menos 4 caracteres.
+O produtor se cadastra pela opção **"Sou produtor e quero me cadastrar"** da tela inicial, informando um **CPF válido** e uma senha de pelo menos 4 caracteres.
 
 ## Requisitos e onde foram implementados
 
